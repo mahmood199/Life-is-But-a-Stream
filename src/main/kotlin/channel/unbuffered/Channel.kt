@@ -1,18 +1,10 @@
-package channel
+package channel.unbuffered
 
-import javafx.application.Application.launch
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlin.system.measureTimeMillis
-
-
-/**
- * [Channels] allow concurrent code to communicate with each other
- * by sending and receiving messages between different coroutines.
- * These are basically pipelines
- */
 
 fun main() {
     waysToInitialiseAnUnBufferedChannel()
