@@ -13,3 +13,7 @@ In order to configure this backpressure, you can define a buffer for your channe
 coroutine sending data through the channel will be suspended when the elements in the
 channel have reached the size of the buffer. Once elements are removed from the channel,
 the sender will be resumed.
+
+## Types of channels
+![image](https://user-images.githubusercontent.com/58071934/216783715-d11da268-f244-4561-89c4-674a25cba6e7.png)
+
