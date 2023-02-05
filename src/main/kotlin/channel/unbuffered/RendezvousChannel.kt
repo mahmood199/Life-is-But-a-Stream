@@ -2,6 +2,8 @@ package channel.unbuffered
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlin.system.measureTimeMillis
@@ -27,6 +29,13 @@ fun demoForUsingAnUnBufferedChannel() = runBlocking {
         }
         channel.receive()
         channel.receive()
+/*
+        Receives the emitted value as they are emitted in order
+        channel.receiveAsFlow().collect {
+            println("Received $it")
+        }
+
+*/
     }
     println("Took ${time}ms")
 }
