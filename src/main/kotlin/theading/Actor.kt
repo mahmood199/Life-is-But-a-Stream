@@ -55,24 +55,5 @@ class Actor {
         print("counter [${getCounter()}]")
     }
 
-
-    fun push(value: Int) {
-        st.push(Pair(value, smallestValue))
-        smallestElement = if(smallestElement > value) value else smallestValue
-    }
-
-    fun pop() {
-        val top = st.peek()
-        st.pop()
-        smallestElement = top.second
-    }
-
-    fun top(): Int {
-        return st.peek().first
-    }
-
-    fun getMin(): Int {
-        return smallestElement
-    }
 }
 
