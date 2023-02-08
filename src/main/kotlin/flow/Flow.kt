@@ -1,3 +1,5 @@
+package flow
+
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlin.random.Random
