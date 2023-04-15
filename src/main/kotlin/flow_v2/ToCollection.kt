@@ -6,11 +6,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.toSet
 import kotlin.random.Random
 
 fun main() = runBlocking {
     launch(Dispatchers.IO) {
         println(toCollectionRandomPercentages(10, 200).toList())
+        println(toCollectionRandomPercentages(10, 200).toSet())
         println("That's all folks!")
     }
 
