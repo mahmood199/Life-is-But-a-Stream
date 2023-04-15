@@ -9,14 +9,14 @@ import kotlin.random.Random
 
 fun main() = runBlocking {
     launch(Dispatchers.IO) {
-        println(randomPercentage().single())
+        println(singleFlowRandomPercentage().single())
         println("That's all folks!")
     }
 
     println("...and we're off!")
 }
 
-fun randomPercentage() = flow {
+fun singleFlowRandomPercentage() = flow {
     emit(Random.nextInt(1, 100))
     //  emit(Random.nextInt(1,10)) <--- this line will crash the flow
 }

@@ -9,14 +9,14 @@ import kotlin.random.Random
 
 fun main() = runBlocking {
     launch(Dispatchers.IO) {
-        randomPercentages().collect { println(it) }
+        flowOfRandomPercentages().collect { println(it) }
         println("That's all folks!")
     }
 
     println("...and we're off!")
 }
 
-fun randomPercentages(): Flow<Int> {
+fun flowOfRandomPercentages(): Flow<Int> {
     return flowOf(
         Random.nextInt(1, 100),
         Random.nextInt(1, 100),

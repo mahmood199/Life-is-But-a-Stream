@@ -5,23 +5,21 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.toList
 import kotlin.random.Random
 
 fun main() = runBlocking {
     launch(Dispatchers.IO) {
-        println("received ${flowOfRandomPercentages(100, 200).first()}")
+        println(toCollectionRandomPercentages(10, 200).toList())
         println("That's all folks!")
     }
 
     println("...and we're off!")
 }
 
-fun flowOfRandomPercentages(count: Int, delayMs: Long) = flow {
+fun toCollectionRandomPercentages(count: Int, delayMs: Long) = flow {
     for (i in 0 until count) {
         delay(delayMs)
-        val value = Random.nextInt(1, 100)
-        println("emitting $value")
-        emit(value)
+        emit(Random.nextInt(1, 100))
     }
 }
