@@ -1,4 +1,4 @@
-package flow_v2
+package flow_v2.samples
 
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.Dispatchers
