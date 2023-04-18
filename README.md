@@ -34,3 +34,11 @@ SendChannel can see if it is closed via isClosedForSend(), while the holder of a
 ReceiveChannel can see if it is closed via isClosedForReceive(). Iterating
 consumers, such as consumeEach(), automatically check for closure and will handle
 that accordingly — in the case of consumeEach(), it returns.
+
+There are other “terminal operators” besides consumeEach() for getting data off of a
+ReceiveChannel
+
+1. offer() is a regular (non-suspend) function that puts an object into the
+channel if there is room
+2. poll() is a regular (non-suspend) function that takes an object out of the
+channel if there is one, returning null otherwise
