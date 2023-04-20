@@ -36,3 +36,10 @@ package channel
  *      once (after which the channel is closed), whereas the Flow returned by
  *      receiveAsFlow() can be collected multiple times.
  */
+
+/**
+ *      Calling broadcast() on a ReceiveChannel, which gives you a
+ *      BroadcastChannel that broadcasts each item delivered to that
+ *      ReceiveChannel. Calling broadcastIn() on a Flow, which gives
+ *      you a BroadcastChannel that broadcasts each item delivered on that Flow
+ */

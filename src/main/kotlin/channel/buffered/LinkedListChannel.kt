@@ -19,7 +19,7 @@ fun waysToInitialiseALinkedListChannel() {
 fun demoForUsingALinkedListChannel() = runBlocking {
     val time = measureTimeMillis {
         val channel = Channel<Int>(Channel.UNLIMITED)
-        GlobalScope.launch {
+        launch {
             repeat(10) {
                 channel.send(it)
                 println("Sent $it")
