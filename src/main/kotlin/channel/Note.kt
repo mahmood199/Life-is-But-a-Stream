@@ -21,3 +21,25 @@ package channel
  *      the previous one will be lost.
  *      This also means that the sender will never be suspended.
  */
+
+/**
+ *      poll() is a regular (non-suspend) function that takes an
+ *      object out of the channel if there is one, returning null otherwise
+ */
+
+/**
+ *      Conversion to flow
+ *      There are two extension functions for ReceiveChannel that wrap it in a Flow:
+ *      receiveAsFlow() and consumeAsFlow(). Both give you a Flow and you can use
+ *      normal Flow operators to process the items sent on the Channel.
+ *      The difference is that the Flow returned by consumeAsFlow() can only be collected
+ *      once (after which the channel is closed), whereas the Flow returned by
+ *      receiveAsFlow() can be collected multiple times.
+ */
+
+/**
+ *      Calling broadcast() on a ReceiveChannel, which gives you a
+ *      BroadcastChannel that broadcasts each item delivered to that
+ *      ReceiveChannel. Calling broadcastIn() on a Flow, which gives
+ *      you a BroadcastChannel that broadcasts each item delivered on that Flow
+ */

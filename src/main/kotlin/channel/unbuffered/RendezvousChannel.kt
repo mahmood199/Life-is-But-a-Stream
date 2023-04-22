@@ -21,7 +21,7 @@ fun waysToInitialiseAnUnBufferedChannel() {
 fun demoForUsingAnUnBufferedChannel() = runBlocking {
     val time = measureTimeMillis {
         val channel = Channel<Int>()
-        GlobalScope.launch {
+        launch {
             repeat(10) {
                 channel.send(it)
                 println("Sent $it")
