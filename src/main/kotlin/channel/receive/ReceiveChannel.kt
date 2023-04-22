@@ -1,15 +1,14 @@
-package channel
+package channel.receive
 
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.channels.produce
 import kotlin.random.Random
 
 fun main() {
 //    validatingBeforeReceivingElements()
-    receiveByPoll()
+    //receiveChannnel()
+    justReceiveChannel()
 }
 
 fun validatingBeforeReceivingElements() {
@@ -24,7 +23,7 @@ fun validatingBeforeReceivingElements() {
     }*/
 }
 
-fun receiveByPoll() = runBlocking {
+fun receiveChannnel() = runBlocking {
     val channel = Channel<Int>(Channel.BUFFERED)
     launch(Dispatchers.IO) {
         for (i in 0 until 10) {
@@ -33,5 +32,21 @@ fun receiveByPoll() = runBlocking {
         }
         channel.close()
     }
+    //channel.poll is deprecated
     println(channel.tryReceive().getOrNull())
+}
+
+fun CoroutineScope.randomPercentagesWithDelay(count: Int, delayMs: Long) = produce {
+    for (i in 0 until count) {
+        delay(delayMs)
+        send(Random.nextInt(1,100))
+    }
+}
+
+fun justReceiveChannel()= runBlocking {
+    launch(Dispatchers.IO) {
+        println(randomPercentagesWithDelay(10, 200).receive())
+        println("That's all folks!")
+    }
+    println("...and we're off!")
 }
